@@ -1,0 +1,49 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">  
+	
+	<CheckBoxPreference 
+		android:key="onoff" 
+		android:summaryOff="Actuellement : Inactif." 
+		android:summaryOn="Actuellement : Actif." 
+		android:order="1" 
+		android:title="Activer automatiquement" 
+		android:defaultValue="true"
+	/>  
+	<EditTextPreference
+		android:order="2" 
+		android:key="user" 
+		android:title="Nom d'utilisateur FreeWifi"
+		android:numeric="integer"
+		android:maxLength="10"
+	/>
+	<EditTextPreference
+		android:order="3" 
+		android:key="password" 
+		android:title="Mot de passe associé"
+		android:password="true"
+	/>
+	<CheckBoxPreference 
+		android:key="notifications" 
+		android:summaryOff="Actuellement : Aucune notification." 
+		android:summaryOn="Actuellement : Notifications actives." 
+		android:order="4" 
+		android:title="Notification de connection" 
+		android:defaultValue="true"
+	/>
+
+	<ListPreference
+		android:key="maxtries" 
+		android:order="5" 
+		android:title="Nombre d'essais maximum"
+		android:entries="@array/maxtries"
+		android:entryValues="@array/maxtries"
+		android:defaultValue="3"
+	/><!--
+	
+	<Preference 
+		android:key="lien_carte"
+		android:order="9999"
+		android:layout="@layout/lien_carte"
+	/>
+
+
+--></PreferenceScreen>  

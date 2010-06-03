@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item 
+		android:id="@+id/aide" 
+		android:title="Aide" 
+		android:icon="@drawable/android:ic_menu_help"
+	/>
+	<item 
+		android:id="@+id/Connecter" 
+		android:title="Connecter maintenant" 
+		android:icon="@drawable/android:ic_menu_share"
+	/>
+</menu>
