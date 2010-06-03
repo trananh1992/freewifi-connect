@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FreeWifi Connect</string>
+    <string name="lien_carte">Trouvez où vous connecter avec la carte FreeWifi</string>
+	<string-array name="maxtries">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

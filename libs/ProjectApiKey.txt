@@ -1,0 +1,2 @@
+Project: freewifi-connect
+API Key: S2ATT21Q1TPLISRE37AJ
