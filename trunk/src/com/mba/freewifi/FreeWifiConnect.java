@@ -31,7 +31,10 @@ public class FreeWifiConnect extends PreferenceActivity implements OnSharedPrefe
 	protected static final String KEY_PASSWORD	= "password";
 	protected static final String KEY_NOTIF		= "notifications";
 	protected static final String KEY_MAXTRIES	= "maxtries";
-	
+	protected static final String KEY_PREFERKNOWN	= "prefererknown";
+	protected static final String KEY_DELAI		= "delai";
+	protected static final String KEY_WATCHDOG	= "watchdog";
+	protected static final String KEY_PREFER	= "prefer";
 	
 	private IFreeWifiControl freeWifiControl = null;
 	
@@ -46,6 +49,7 @@ public class FreeWifiConnect extends PreferenceActivity implements OnSharedPrefe
 		updateLibelle(KEY_USER);
 		updateLibelle(KEY_PASSWORD);
 		updateLibelle(KEY_MAXTRIES);
+		updateLibelle(KEY_DELAI);
 		
 //		Display d = getWindowManager().getDefaultDisplay(); 
 //        final int width = d.getWidth(); 
@@ -92,7 +96,7 @@ public class FreeWifiConnect extends PreferenceActivity implements OnSharedPrefe
     }
 	
 	private void updateLibelle(String key) {
-		if (KEY_ONOFF.equals(key) || KEY_NOTIF.equals(key)) {
+		if (KEY_ONOFF.equals(key) || KEY_NOTIF.equals(key) || KEY_PREFER.equals(key)) {
 			return;
 		}
 		String summary = null;
@@ -101,10 +105,13 @@ public class FreeWifiConnect extends PreferenceActivity implements OnSharedPrefe
 			summary = "Actuellement: "+(value==null?"Non renseigné":value);
 		} else
 		if (KEY_PASSWORD.equals(key)) {
-			summary = "Acuellement: "+(value==null?"Non renseigné":"Renseigné.");
-		}
+			summary = "Actuellement: "+(value==null?"Non renseigné":"Renseigné.");
+		} else
 		if (KEY_MAXTRIES.equals(key)) {
-			summary = "Acuellement: "+(value==null?"3":value);
+			summary = "Actuellement: "+(value==null?"3":value);
+		} else
+		if (KEY_DELAI.equals(key)) {
+			summary = "Actuellement: "+(value==null||"0".equals(value)?"Immédiat":value);
 		}
 		if (summary!=null) {
 			PreferenceScreen ps = getPreferenceScreen();

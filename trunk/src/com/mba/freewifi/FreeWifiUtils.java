@@ -3,6 +3,7 @@ package com.mba.freewifi;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -51,7 +52,6 @@ public class FreeWifiUtils {
 	        Scheme sch = new Scheme("https", tasslf, 443);
 			httpclient.getConnectionManager().getSchemeRegistry().register(sch);
 
-			HttpGet get = null;
 			HttpResponse response = null;
 			HttpEntity responseEntity = null;
 			BufferedReader br = null;
@@ -72,7 +72,7 @@ public class FreeWifiUtils {
 //				}
 //			}
 			
-		    ArrayList<NameValuePair> values = new ArrayList<NameValuePair>();
+		    List<NameValuePair> values = new ArrayList<NameValuePair>();
 		    values.add(new BasicNameValuePair("login", user));
 		    values.add(new BasicNameValuePair("password", password));
 		    //values.add(new BasicNameValuePair("priv", priv));
