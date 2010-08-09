@@ -1,5 +1,6 @@
 package com.mba.freewifi;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -84,6 +85,15 @@ public class FreeWifiService extends Service {
 					if (code==FreeWifiUtils.CONNECT_OK) {
 						msg1 = "Identification FreeWifi Ok.";
 						msg2 = "Vous avez été correctement identifié.";
+						
+						if (sp.getBoolean(FreeWifiConnect.KEY_WATCHDOG, true)) {
+							// Declencher le watchdog
+							Intent svcintent = new Intent(this, FreeWifiWatchdogService.class);
+							PendingIntent pendingIntent = PendingIntent.getService(this, 0, svcintent, 0);
+							AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+							alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + FreeWifiWatchdogService.WATCHDOG_DELAY, pendingIntent);
+						}
+						
 					} else {
 						msg1 = "Identification FreeWifi en erreur ("+essais+"/"+maxtries+") ...";
 						icon = R.drawable.iconerror;
@@ -115,14 +125,10 @@ public class FreeWifiService extends Service {
 	public IBinder onBind(Intent intent) {
 		bindCount++;
 		return new IFreeWifiControl.Stub() {
-
 			@Override
 			public void connect(boolean force) throws RemoteException {
 				doconnect(force);
 			}
-			
-			
-			
 		};
 	}
 

@@ -1,10 +1,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">  
 	
 	<CheckBoxPreference 
+		android:order="1" 
 		android:key="onoff" 
 		android:summaryOff="Actuellement : Inactif." 
 		android:summaryOn="Actuellement : Actif." 
-		android:order="1" 
 		android:title="Activer automatiquement" 
 		android:defaultValue="true"
 	/>  
@@ -12,7 +12,7 @@
 		android:order="2" 
 		android:key="user" 
 		android:title="Nom d'utilisateur FreeWifi"
-		android:numeric="integer"
+		android:phoneNumber="true"
 		android:maxLength="10"
 	/>
 	<EditTextPreference
@@ -37,7 +37,31 @@
 		android:entries="@array/maxtries"
 		android:entryValues="@array/maxtries"
 		android:defaultValue="3"
-	/><!--
+	/>
+	
+	<CheckBoxPreference 
+		android:key="watchdog" 
+		android:summaryOff="Actuellement : Aucune surveillance." 
+		android:summaryOn="Actuellement : Surveillance active." 
+		android:order="6" 
+		android:title="Surveillance de la connection" 
+		android:defaultValue="true"
+	/>
+	<EditTextPreference
+		android:order="7" 
+		android:key="delai" 
+		android:title="Délai d\'identification"
+		android:phoneNumber="true"
+	/>
+	<CheckBoxPreference 
+		android:order="8" 
+		android:key="prefer" 
+		android:summaryOff="Actuellement : Inactif." 
+		android:summaryOn="Actuellement : Actif." 
+		android:title="Preférer les point d\'accès déjà connus." 
+		android:defaultValue="true"
+	/>  
+<!--
 	
 	<Preference 
 		android:key="lien_carte"
