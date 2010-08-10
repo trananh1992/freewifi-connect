@@ -96,7 +96,7 @@ public class FreeWifiConnect extends PreferenceActivity implements OnSharedPrefe
     }
 	
 	private void updateLibelle(String key) {
-		if (KEY_ONOFF.equals(key) || KEY_NOTIF.equals(key) || KEY_PREFER.equals(key)) {
+		if (KEY_ONOFF.equals(key) || KEY_NOTIF.equals(key) || KEY_PREFER.equals(key) || KEY_WATCHDOG.equals(key)) {
 			return;
 		}
 		String summary = null;
